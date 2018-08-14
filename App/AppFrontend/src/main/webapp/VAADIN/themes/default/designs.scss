@@ -1,0 +1,128 @@
+@mixin designs {
+	.pilger-login-view {
+		background-color: transparent;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    	
+		.v-textfield {
+      		padding-left: 0;
+      		border: 0;
+      		font-weight: 100;
+      		background-color:	#ffec8b;
+   		}
+   	
+   		> div.v-slot {
+   			position: relative;
+   			top: 20%;
+
+	   		div.v-slot {
+	   			text-align: center;
+	   		}
+   		}
+   	}
+
+/*
+	.pilger-person-grid {
+      	.v-button {
+        	border-radius: 0;
+        	font-size: 24px;
+      	}
+		.v-horizontal > .v-spacing {
+    		width: 2px;
+		}
+   	}
+   
+    .navigation-bar {
+      color: lighten($v-focus-color, 40%);
+      background-size: cover;
+      background-position: top;
+
+      .v-button {
+        border-radius: 0;
+      }
+      .selected {
+        background: rgba(0, 0, 0, .2);
+        color: lighten($v-focus-color, 60%);
+        .v-icon, .v-button-caption {
+          color: lighten($v-focus-color, 60%);
+        }
+      }
+      .activeViewName {
+        line-height: $v-unit-size;
+        width: auto !important;
+        padding: 0 $v-unit-size / 2.5;
+        font-size: $v-font-size;
+      }
+    }
+ 
+ 
+ */
+ 
+ /*
+   	.v-slot-pilger-top-nav-bar {
+   		min-height: 15%
+   		max-height: 15%
+   	}
+ */
+   
+	.pilger-top-nav-bar  {
+		text-align: center;
+		width: 100%;
+	}
+
+	
+	.pilger-content {
+		text-align: center;
+		width: 100%;
+		
+		> div {
+			text-align: center;
+			width: 100%;
+			padding-top: 0px;
+		}
+	}
+
+
+
+
+
+/*
+	.point7 > div.v-slot > div.v-grid {
+		width: 1000px !important;
+		
+		> div.v-grid-scroller-horizontal {
+			width: 943px !important;
+		}
+	
+		> div.v-grid-tablewrapper {
+			width: 1000px !important;
+		}
+	}
+*/
+
+
+/*	
+	.pilger-person-person-content, .pilger-person-main {
+		padding: 0px;
+	}
+*/
+
+
+/*	
+	.pilger-person-address-communication-content.visible {
+		border-top: LightGray solid 2px;
+		padding-top: 5px;
+	}
+
+	.point8 {
+		border-right: LightGray solid 2px;
+		min-height: 500px;
+	}
+
+	.point10 {
+		padding-top: 37px;
+	}
+*/
+ }
