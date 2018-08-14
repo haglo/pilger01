@@ -65,8 +65,7 @@ C:\dev\wildfly\wildfly-13\bin\add-user.bat
 
 
 #### 8. Maven (execute on App, not on AppAggregat, AppFrontend and AppBackend)
-Build:		clean compile package verify 
-
+Build:		clean compile package verify  
 Deploy:	clean package verify install wildfly:deploy
 
 #### 9. Test
