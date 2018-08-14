@@ -1,5 +1,6 @@
 # pilger01
-App with Java EE7 + Wildfly 13 + Vaadin 8
+App with Java EE7 + Wildfly 13 + Vaadin 8  
+Detailed Documentation under App/docu/Documentation.pdf
 
 
 #### Requirements:
