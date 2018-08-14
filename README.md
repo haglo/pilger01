@@ -48,8 +48,7 @@ Source:		C:\Program Files (x86)\MySQL\Connector J 5.1\mysql-connector-java-5.1.4
 Target:		C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar
 <br/>
 
-#### 8. WildFly Datasource Settings
-http://localhost:9990
+#### 8. WildFly: Datasource Settings
 
 
 |Value                       | Settings                                                                                                        |
