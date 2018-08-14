@@ -42,7 +42,7 @@ InstallDir:		C:\dev\wildfly\wildfly-13
 Copy from: App/docu/standalone.xml   
 Copy to: C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml  
 
-Copy from: App/docu/mysql-connector-java-5.1.45-bin.jar  
+Copy from: C:\Program Files (x86)\MySQL\Connector J 5.1\mysql-connector-java-5.1.45-bin.jar
 Copy to: C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar  
 
 #### 6. WildFly: Create user admin
