@@ -38,18 +38,16 @@ quit;
 Download:		WildFly 13   
 InstallDir:		C:\dev\wildfly\wildfly-13
 
-Copy standalone.xml to C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml
+Copy App/docu/standalone.xml -to- C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml
+
+Copy App/mysql-connector-java-5.1.45-bin.jar -to- C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar
 
 #### 6. WildFly: Create user admin
 C:\dev\wildfly\wildfly-13\bin\add-user.bat
 <br/>
 
-#### 7. WildFly: Deploy MySQL-Driver
-Source:		C:\Program Files (x86)\MySQL\Connector J 5.1\mysql-connector-java-5.1.45-bin.jar   
-Target:		C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar
-<br/>
 
-#### 8. WildFly: Datasource Settings
+#### 7. WildFly: Datasource Settings
 
 
 |Value                       | Settings                                                                                                        |
@@ -62,12 +60,12 @@ Target:		C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5
 |Password:		       |123atgfd																										|
 
 
-#### 9. Maven (execute on App, not on AppAggregat, AppFrontend and AppBackend)
+#### 8. Maven (execute on App, not on AppAggregat, AppFrontend and AppBackend)
 Build:		clean compile package verify 
 
 Deploy:	clean package verify install wildfly:deploy
 
-#### 10. Test
+#### 9. Test
 http://localhost:8080/AppFrontend/
 
 <<<<<<< HEAD
