@@ -37,6 +37,7 @@ quit;
 #### 5. WildFly: Install
 Download:		WildFly 13   
 InstallDir:		C:\dev\wildfly\wildfly-13
+
 Copy standalone.xml to C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml
 
 #### 6. WildFly: Create user admin
@@ -63,6 +64,7 @@ Target:		C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5
 
 #### 9. Maven (execute on App, not on AppAggregat, AppFrontend and AppBackend)
 Build:		clean compile package verify 
+
 Deploy:	clean package verify install wildfly:deploy
 
 #### 10. Test
