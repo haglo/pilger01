@@ -38,13 +38,11 @@ quit;
 Download:		WildFly 13   
 InstallDir:		C:\dev\wildfly\wildfly-13
 
-Copy:  
-App/docu/standalone.xml   
-C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml  
+Copy from: App/docu/standalone.xml   
+Copy to: C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml  
 
-Copy:  
-App/docu/mysql-connector-java-5.1.45-bin.jar  
-C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar  
+Copy from: App/docu/mysql-connector-java-5.1.45-bin.jar  
+Copy to: C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar  
 
 #### 6. WildFly: Create user admin
 C:\dev\wildfly\wildfly-13\bin\add-user.bat
