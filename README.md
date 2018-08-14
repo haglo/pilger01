@@ -38,7 +38,6 @@ quit;
 Download:		WildFly 13   
 InstallDir:		C:\dev\wildfly\wildfly-13
 Copy standalone.xml to C:\dev\wildfly\wildfly-13\standalone\configuration\standalone.xml
-<br/>
 
 #### 6. WildFly: Create user admin
 C:\dev\wildfly\wildfly-13\bin\add-user.bat
@@ -49,10 +48,9 @@ Source:		C:\Program Files (x86)\MySQL\Connector J 5.1\mysql-connector-java-5.1.4
 Target:		C:\dev\wildfly\wildfly-12\standalone\deployments\mysql-connector-java-5.1.45-bin.jar
 <br/>
 
-#### 8. WildFly: Create Datasource
+#### 8. WildFly Datasource Settings
 http://localhost:9990
 
-Configuration > Subsystems > Datasources > Non-XA
 
 |Value                       | Settings                                                                                                        |
 |------------------------|----------------------------------------------------------------------------------------|
