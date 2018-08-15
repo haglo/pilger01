@@ -1,7 +1,6 @@
 package org.app.model.dao;
 
 import java.util.List;
-
 import org.app.model.entity.Settings;
 
 public interface SettingsDAO {

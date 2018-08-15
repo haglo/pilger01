@@ -22,4 +22,6 @@ insert into pilgerdb.title (listprio, title) values (2, 'Dr.');
 insert into pilgerdb.title (listprio, title) values (3, 'Graf von');
 insert into pilgerdb.title (listprio, title) values (4, 'Freiherr von');
 
+insert into pilgerdb.settings(defaultLanguage, defaultTheme, defaultWindowWidth) values ('english', 'Default', '1200px');
+
 
