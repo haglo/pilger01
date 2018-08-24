@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 
 import org.app.model.audit.LoggedInUser;
+import org.app.model.dao.ElytronRoleDAO;
 import org.app.model.dao.ElytronUserDAO;
 import org.app.model.entity.ElytronUser;
 
@@ -16,12 +17,12 @@ import org.app.model.entity.ElytronUser;
  * In MVC the Controler-Part
  */
 @RequestScoped
-public class ElytronUserService implements Serializable {
+public class ElytronRoleService implements Serializable {
 
  	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private ElytronUserDAO elytronUserDAO;
+	private ElytronRoleDAO elytronRoleDAO;
 
 	private boolean isEditing = false;
 
@@ -38,7 +39,7 @@ public class ElytronUserService implements Serializable {
 		this.isEditing = !this.isEditing;
 	}
 	
-	public ElytronUserDAO getElytronUserDAO() {
-		return elytronUserDAO;
+	public ElytronRoleDAO getElytronRoleDAO() {
+		return elytronRoleDAO;
 	}
 }

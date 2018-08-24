@@ -1,5 +1,6 @@
 package org.app.controler;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
 
@@ -14,7 +15,9 @@ import org.app.model.entity.Settings;
  * In MVC the Controler-Part
  */
 @RequestScoped
-public class SettingsService {
+public class SettingsService implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private SettingsDAO settingsDAO;

@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Version;
 
 @MappedSuperclass
 public abstract class Superclass implements Serializable {
@@ -19,6 +21,10 @@ public abstract class Superclass implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
+	@Version
+	@Column(name = "optlock", columnDefinition = "integer DEFAULT 0", nullable = false)
+	private long version = 0L;
 
 	private String uuid;
 

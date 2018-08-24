@@ -1,5 +1,7 @@
 package org.app.controler;
 
+import java.io.Serializable;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 
@@ -9,7 +11,9 @@ import org.app.model.dao.TitleDAO;
  * Managed Bean
  */
 @RequestScoped
-public class TitleService {
+public class TitleService implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private TitleDAO titleDAO;

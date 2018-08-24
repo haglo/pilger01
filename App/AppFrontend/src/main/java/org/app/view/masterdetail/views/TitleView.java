@@ -67,7 +67,7 @@ public class TitleView extends VerticalLayout implements View {
 		});
 
 		grid.setDataProvider(dataProvider);
-		grid.addColumn(Title::getListPrio).setCaption(i18n.BASIC_LIST_PRIO).setId(i18n.BASIC_LIST_PRIO);;
+		grid.addColumn(Title::getListPrio).setCaption(i18n.BASIC_LIST_PRIO).setId(i18n.BASIC_LIST_PRIO);
 		grid.addColumn(title -> title.getTitle()).setCaption(i18n.TITLE_VALUE).setEditorComponent(newValueField,
 				Title::setTitle);
 		grid.addColumn(Title::getComment).setCaption(i18n.BASIC_COMMENT).setEditorComponent(newCommentField,

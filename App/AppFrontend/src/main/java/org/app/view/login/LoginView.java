@@ -1,6 +1,9 @@
 package org.app.view.login;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import org.app.controler.jaas.AuthService;
 import org.app.helper.I18n;
 import com.vaadin.cdi.CDIView;
 import com.vaadin.cdi.UIScoped;
@@ -11,6 +14,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -21,6 +25,9 @@ import com.vaadin.ui.themes.ValoTheme;
 @CDIView(I18n.LOGIN_VIEW)
 @UIScoped
 public class LoginView extends VerticalLayout implements View {
+	
+	@Inject 
+	AuthService authService;
 
 	private Button loginButton;
 	private VerticalLayout centeringLayout;
@@ -38,10 +45,6 @@ public class LoginView extends VerticalLayout implements View {
 		addComponent(centeringLayout);
 	}
 
-	/**
-	 * Special case - Must be called by MainUI via Interface Translatable
-	 */
-
 	private Component buildLoginForm() {
 		FormLayout loginForm = new FormLayout();
 		loginForm.setSizeUndefined();
@@ -53,9 +56,12 @@ public class LoginView extends VerticalLayout implements View {
 
 		loginButton = new Button("Login", event -> {
 			try {
-				JaasAccessControl.login(username.getValue(), password.getValue());
-				Page page = Page.getCurrent();
-				page.setLocation(page.getLocation()); 
+				if (preAuthentication(username.getValue(), password.getValue())) {
+					JaasAccessControl.login(username.getValue(), password.getValue());
+					Notification.show(authService.getMessageForAuthentication());
+					Page page = Page.getCurrent();
+					page.reload();					
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -69,6 +75,10 @@ public class LoginView extends VerticalLayout implements View {
 		loginForm.addComponent(loginButton);
 
 		return loginForm;
+	}
+	
+	private boolean preAuthentication(String username, String password) {
+		return authService.validateAuthenticationValues(username, password);
 	}
 
 }

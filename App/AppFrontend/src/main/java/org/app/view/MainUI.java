@@ -3,18 +3,13 @@ package org.app.view;
 import java.util.Locale;
 import java.util.Optional;
 import javax.inject.Inject;
-import javax.security.auth.Subject;
-import javax.security.auth.login.LoginContext;
-
 import org.app.controler.ElytronUserService;
 import org.app.controler.SessionService;
 import org.app.helper.I18n;
-import org.app.model.audit.LoggedInUser;
-import org.app.model.dao.ElytronUserDAO;
-import org.app.model.entity.Account;
-import org.app.model.entity.ElytronUser;
+import org.app.view.help.HelpView;
 import org.app.view.login.LoginView;
 import org.app.view.person.PersonView;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIUI;
 import com.vaadin.cdi.CDIViewProvider;
@@ -23,8 +18,6 @@ import com.vaadin.cdi.access.JaasAccessControl;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.HasComponents;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -35,9 +28,6 @@ import com.vaadin.ui.VerticalLayout;
 public class MainUI extends UI {
 	@Inject
 	CDIViewProvider viewProvider;
-
-	@Inject
-	PersonView personView;
 
 	@Inject
 	LoginView loginView;

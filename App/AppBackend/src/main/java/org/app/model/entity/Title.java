@@ -6,14 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.envers.Audited;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = Title.QUERY_FIND_ALL, query = "SELECT c FROM Title c"),
-		@NamedQuery(name = Title.QUERY_FIND_BY_PRIORITY, query = "SELECT c FROM Title c WHERE c.listPrio =  :listPrio") })
+@NamedQueries({ 
+		@NamedQuery(name = Title.QUERY_FIND_ALL, query = "SELECT c FROM Title c"),
+		@NamedQuery(name = Title.QUERY_FIND_BY_PRIORITY, query = "SELECT c FROM Title c WHERE c.listPrio =  :listPrio") 
+		})
 @Audited
 public class Title extends Superclass implements Serializable {
 

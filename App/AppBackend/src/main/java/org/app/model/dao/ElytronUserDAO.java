@@ -18,4 +18,5 @@ public interface ElytronUserDAO {
 
 	public List<ElytronUser> findAll();
 
+	public List<ElytronUser> findAllExpanded();
 }

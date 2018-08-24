@@ -27,8 +27,8 @@ public class TopMainMenu extends CustomComponent {
 
 	}
 	public TopMainMenu(JaasAccessControl ac) {
-		this.accessControl = new JaasAccessControl();
-		this.accessControl = ac;
+		accessControl = new JaasAccessControl();
+		accessControl = ac;
 		setupLayout();
 	}
 
@@ -53,7 +53,6 @@ public class TopMainMenu extends CustomComponent {
 					accessControl.logout();
 					getUI().getSession().close();
 					getUI().getPage().reload();
-//					UI.getCurrent().getNavigator().navigateTo(I18n.LOGIN_VIEW);
 				} catch (ServletException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

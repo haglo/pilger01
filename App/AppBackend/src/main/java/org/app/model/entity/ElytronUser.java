@@ -2,42 +2,42 @@ package org.app.model.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
 import org.app.model.entity.enums.DefaultLanguage;
 import org.app.model.entity.enums.DefaultTheme;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = ElytronUser.QUERY_FIND_ALL, query = "SELECT c FROM ElytronUser c"),
-		@NamedQuery(name = ElytronUser.QUERY_FIND_BY_USERNAME, query = "SELECT c FROM ElytronUser c WHERE c.username =  :username") })
+@NamedQueries({ 
+		@NamedQuery(name = ElytronUser.QUERY_FIND_ALL, query = "SELECT c FROM ElytronUser c"),
+		@NamedQuery(name = ElytronUser.QUERY_FIND_ALL_EXPANDED, query = "SELECT c FROM ElytronUser c join fetch c.elytronRole"),
+		@NamedQuery(name = ElytronUser.QUERY_FIND_BY_USERNAME, query = "SELECT c FROM ElytronUser c WHERE c.username =  :username")
+		})
 public class ElytronUser extends Superclass implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	public static final String QUERY_FIND_ALL = "ElytronUser.FindAll";
+	public static final String QUERY_FIND_ALL_EXPANDED = "ElytronUser.FindAllExpanded";
 	public static final String QUERY_FIND_BY_USERNAME = "ElytronUser.FindByUserName";
 
-	@Column(unique = true, length = 45)
+	@Column(unique = true)
 	private String username;
 
 	/**
 	 * Einbinden: Entity Role über ComboBox
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ELYTRON_ROLE_ID")
-	private ElytronRole rolename;
-	
+	private ElytronRole elytronRole;
+
 	/**
 	 * Einbinden: Enum Language über ComboBox
 	 */
@@ -50,14 +50,6 @@ public class ElytronUser extends Superclass implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private DefaultTheme defaultTheme;
 
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -66,12 +58,12 @@ public class ElytronUser extends Superclass implements Serializable {
 		this.username = username;
 	}
 
-	public ElytronRole getRolename() {
-		return rolename;
+	public ElytronRole getElytronRole() {
+		return elytronRole;
 	}
 
-	public void setRolename(ElytronRole rolename) {
-		this.rolename = rolename;
+	public void setElytronRole(ElytronRole elytronRole) {
+		this.elytronRole = elytronRole;
 	}
 
 	public DefaultLanguage getDefaultLanguage() {

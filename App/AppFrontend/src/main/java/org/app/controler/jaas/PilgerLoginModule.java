@@ -5,21 +5,18 @@ import java.util.Map;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.security.auth.Subject;
+import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.NameCallback;
 import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
-import javax.security.auth.login.FailedLoginException;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
-import org.app.model.entity.Account;
+
 import org.app.view.MainUI;
-import org.app.view.login.LoginView;
 
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
-
-import javax.security.auth.callback.Callback;
 
 @RequestScoped
 public class PilgerLoginModule implements LoginModule {
@@ -27,9 +24,6 @@ public class PilgerLoginModule implements LoginModule {
 	@Inject
 	private AuthService authService;
 	
-	@Inject 
-	private LoginView loginView;
-
 	private boolean succeeded = false;
 	private Subject subject;
 	private CallbackHandler callbackHandler;
@@ -95,7 +89,7 @@ public class PilgerLoginModule implements LoginModule {
 
 		// don't ever do this in a real application!
 		
-		if (authService.validateAccount(loginFormUserName, loginFormPassword)) {
+		if (authService.validateAuthenticationValues(loginFormUserName, loginFormPassword)) {
 			succeeded = true;
 			((MainUI) UI.getCurrent()).loginSuccessful();
 			return succeeded;
@@ -104,7 +98,6 @@ public class PilgerLoginModule implements LoginModule {
 			Notification.show(authService.getMessageForAuthentication());
 			return succeeded;
 		}
-
 	}
 
 	@Override

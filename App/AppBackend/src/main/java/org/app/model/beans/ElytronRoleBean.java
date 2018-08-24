@@ -2,14 +2,19 @@ package org.app.model.beans;
 
 import java.util.List;
 
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.app.model.dao.ElytronRoleDAO;
+import org.app.model.dao.ElytronUserDAO;
 import org.app.model.entity.ElytronRole;
+import org.app.model.entity.ElytronUser;
 
 @Stateless
-public class ElytronRoleBean {
+@Remote(ElytronRoleDAO.class)
+public class ElytronRoleBean implements ElytronRoleDAO {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -18,8 +23,15 @@ public class ElytronRoleBean {
 		return em.find(ElytronRole.class, id);
 	}
 
+
+	@Override
+	public ElytronRole findByName(String erole) {
+		return em.createNamedQuery(ElytronRole.QUERY_FIND_BY_ROLENAME, ElytronRole.class).setParameter("rolename", erole)
+				.getSingleResult();
+	}
+
 	public List<ElytronRole> findAll() {
-		return em.createNamedQuery(ElytronRole.QUERY_GET_ALL, ElytronRole.class).getResultList();
+		return em.createNamedQuery(ElytronRole.QUERY_FIND_ALL, ElytronRole.class).getResultList();
 	}
 
 }

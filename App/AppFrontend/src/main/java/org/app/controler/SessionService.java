@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 import org.app.model.audit.LoggedInUser;
+import org.app.model.entity.Account;
 import org.app.model.entity.ElytronUser;
 
 /*
@@ -16,14 +17,14 @@ import org.app.model.entity.ElytronUser;
 @SessionScoped
 public class SessionService implements Serializable {
 
-//	@Inject
-//	SettingsService settingsService;
-	
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	SettingsService settingsService;
+
 	@Inject
 	LoggedInUser loggedInUser;
-	
-	private static final long serialVersionUID = 1L;
-	
+
 	private ElytronUser currentUser = new ElytronUser();
 	private Locale currentLocale;
 	private String currentTheme;
